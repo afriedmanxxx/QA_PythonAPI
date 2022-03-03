@@ -5,6 +5,7 @@ import requests
 # Когда скрипт будет готов - давайте его закоммитим в наш репозиторий.
 #Результатом должна быть ссылка на коммит.
 
-link = "https://playground.learnqa.ru/api/get_text"
-response = requests.get(link)
+link = "https://playground.learnqa.ru/api/hello"
+payload = {"name": "User"}
+response = requests.get(link, params=payload)
 print(response.text)

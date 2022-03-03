@@ -1,8 +1,12 @@
-# import requests
-#
-# link = "https://www.playground.learnqa.ru/api/hello"
-#
-# response = requests.get(link)
-# print(response.text)
+from json.decoder import JSONDecodeError
+import requests
 
-print("Hello world from Alexander")
+response = requests.get("https://playground.learnqa.ru/api/get_text")
+print(response.text)
+try:
+    parsed_response_text = response.json()
+    print(parsed_response_text)
+    print(parsed_response_text["answer"])
+except JSONDecodeError:
+    print("Response is not a JSON format.")
+
