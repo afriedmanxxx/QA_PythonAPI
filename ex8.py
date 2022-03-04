@@ -47,11 +47,13 @@ print(waiting_time)
 # 2) делал один запрос с token ДО того, как задача готова, убеждался в правильности поля status
 response = requests.get("https://playground.learnqa.ru/ajax/api/longtime_job", params=payload)
 print(response.json())
+
 assert (response.json()["status"]) == "Job is NOT ready", "Wrong status, expected - 'Job is NOT ready'."
 
 # 3) ждал нужное количество секунд с помощью функции time.sleep() - для этого надо сделать import time
 time.sleep(waiting_time)
 response = requests.get("https://playground.learnqa.ru/ajax/api/longtime_job", params=payload)
 print(response.json())
-assert response.json().__contains__("result"), "Result key is not found but expected."
+
+assert "result" in response.json(), "Result key is not found but expected."
 assert (response.json()["status"]) == "Job is ready", "Wrong status, expected - 'Job is ready'."
