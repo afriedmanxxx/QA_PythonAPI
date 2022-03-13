@@ -1,6 +1,4 @@
 import requests
-import pytest
-
 '''
 Необходимо написать тест, который делает запрос на метод: https://playground.learnqa.ru/api/homework_cookie
 Этот метод возвращает какую-то cookie с каким-то значением. Необходимо с помощью функции print() понять что 
@@ -15,5 +13,5 @@ def test_cookie():
     print(response.cookies.keys())
     print(response.cookies)
 
-    assert 'HomeWork ' in response.cookies, f"The key 'HomeWork' is not in {response.cookies} "
+    assert 'HomeWork' in response.cookies, f"The key 'HomeWork' is not in {response.cookies} "
 
