@@ -14,7 +14,7 @@ class TestUserEdit(BaseCase):
         email = registered_data["email"]
         first_name = registered_data["firstName"]
         password = registered_data["password"]
-        user_id= self.get_json_value(response1, "id")
+        user_id = self.get_json_value(response1, "id")
 
         #LOGIN
         login_data = {
