@@ -20,7 +20,6 @@ class TestUserRegister(BaseCase):
         print(response.content)
         Assertions.assert_json_has_key(response, "id")
 
-
     def test_create_user_with_existing_email(self):
         email = "cinkotov@example.com"
         data = self.prepare_registration_data(email)
