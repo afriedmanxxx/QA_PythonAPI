@@ -1,4 +1,4 @@
-# QA_PythonAPI
+# REST API Framework
 Allure:
 pytest --alluredir=test_results tests/test_user_auth.py
 allure serve test_results
