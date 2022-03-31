@@ -12,3 +12,5 @@ docker run --rm --mount type=bind,src={path to framework},target=/tests_project/
 
 docker-compose up --build
 
+Documentation: https://playground.learnqa.ru/api/map
+
