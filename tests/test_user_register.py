@@ -31,3 +31,16 @@ class TestUserRegister(BaseCase):
         Assertions.assert_code_status(response, 400)
         assert response.content.decode("utf-8") == f"Users with email '{email}' already exists",\
             f"Unexpected response content {response.content}"
+
+    def test_create_user_without_at(self):
+        email = "cinkotovexample.com"
+        data = self.prepare_registration_data(email)
+        response = MyRequests.post("/user", data=data)
+
+        print(response.status_code)
+        print(response.content)
+
+
+
+
+
