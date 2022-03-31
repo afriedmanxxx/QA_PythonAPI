@@ -1,4 +1,6 @@
 # REST API Framework
+Tech stack: Python, Pytest, Requests, Docker & Allure
+
 Allure:
 pytest --alluredir=test_results tests/test_user_auth.py
 allure serve test_results
