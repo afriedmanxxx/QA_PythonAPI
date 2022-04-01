@@ -21,6 +21,7 @@ class TestUserGuest(BaseCase):
         auth_sid = self.get_cookie(response1, 'auth_sid')
         token = self.get_header(response1, "x-csrf-token")
         user_id_from_auth_method = self.get_json_value(response1, "user_id")
+        print(user_id_from_auth_method)
 
         response2 = MyRequests.get(
             f"/user/{user_id_from_auth_method}",
@@ -31,3 +32,18 @@ class TestUserGuest(BaseCase):
         expected_fields = ["username", "email", "firstName", "lastName"]
         Assertions.assert_json_has_keys(response2, expected_fields)
 
+    def test_get_another_user_details_with_auth_user(self):
+        data = {
+            'email': 'vinkotov@example.com',
+            'password': '1234'
+        }
+
+        response1 = MyRequests.post("/user/login", data=data)
+        user_id = 1
+        response2 = MyRequests.get(f"/user/{user_id}")
+        print(response2.content)
+
+        Assertions.assert_json_has_key(response2, "username")
+        Assertions.assert_json_has_no_key(response2, "firstName")
+        Assertions.assert_json_has_no_key(response2, "email")
+        Assertions.assert_json_has_no_key(response2, "lastName")
