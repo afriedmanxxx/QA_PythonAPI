@@ -3,8 +3,10 @@ from lib.base_case import BaseCase
 from lib.assertions import Assertions
 from datetime import datetime
 import pytest
+import allure
 
 
+@allure.epic("Create user cases")
 class TestUserRegister(BaseCase):
     def setup(self):
         base_part = "learnqa"
